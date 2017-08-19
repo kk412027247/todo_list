@@ -45,4 +45,4 @@ const mapDispatchToProps = (dispatch, ownProps)=>{
   }
 } ;
 
-export default connect(null, mapDispatchToProps)(TodoItem)
+export default connect(null, mapDispatchToProps)(TodoItem);
