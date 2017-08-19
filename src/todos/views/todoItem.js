@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux'
 import {toggleTodo,removeTodo} from '../actions.js'
 
 class TodoItem extends React.Component{
