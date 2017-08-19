@@ -39,6 +39,7 @@ TodoItem.propTypes={
 } ;
 
 const mapDispatchToProps = (dispatch, ownProps)=>{
+  console.log(ownProps) ;
   const{id}=ownProps;
   return{
     onToggle:()=>dispatch(toggleTodo(id)),
