@@ -11,7 +11,7 @@ class TodoItem extends React.Component{
   }
 
   render(){
-    const {onToggle, onRemove, completed, text, _id} = this.props;
+    const {onToggle, onRemove, completed, text, id} = this.props;
     console.log('enter todoitem render: '+text) ;
 
     return(
@@ -21,8 +21,8 @@ class TodoItem extends React.Component{
           textDecoration: completed ? 'line-through' : 'none'
         }}
       >
-      <input id={_id} type="checkbox" checked={completed ? 'checked' : '' } className="toggle" readOnly onClick={onToggle}  />
-      <label htmlFor={_id} className="text"> {text} </label>
+      <input id={id} type="checkbox" checked={completed ? 'checked' : '' } className="toggle" readOnly onClick={onToggle}  />
+      <label htmlFor={id} className="text"> {text} </label>
       <button className="remove" onClick={onRemove}>X</button>
       </li>
     )
