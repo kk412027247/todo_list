@@ -6,14 +6,14 @@ import {toggleTodo,removeTodo} from '../actions.js'
 class TodoItem extends React.Component{
   constructor(){
     super(...arguments);
-    console.log('enter todoitem constructor: '+this.props.text);
+    console.log('enter todoItem constructor: '+this.props.text);
     console.log(...arguments);
 
   }
 
   render(){
     const {onToggle, onRemove, completed, text, id} = this.props;
-    console.log('enter todoitem render: '+text) ;
+    console.log('enter todoItem render: '+text) ;
 
     return(
       <li
