@@ -1,22 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {toggleTodo,removeTodo} from '../actions.js'
 
+class TodoItem extends React.Component{
+  constructor(){
+    super(...arguments);
+    console.log('enter todoitem constructor: '+this.props.text);
+    console.log(...arguments);
 
-const TodoItem =({onToggle,onRemove,completed,text,_id})=>{
-  const checkedProp=completed ? {checked:true} : {};
-  return(
-    <li
-      className="todo-item"
-      style={{
-          textDecoration:completed ? 'line-through' : 'none'
-      }}
-    >
-      <input id={_id} type="checkbox" {...checkedProp} className="toggle" readOnly onClick={onToggle}  />
+  }
+
+  render(){
+    const {onToggle, onRemove, completed, text, _id} = this.props;
+    console.log('enter todoitem render: '+text) ;
+
+    return(
+      <li
+        className="todo-item"
+        style={{
+          textDecoration: completed ? 'line-through' : 'none'
+        }}
+      >
+      <input id={_id} type="checkbox" checked={completed ? 'checked' : '' } className="toggle" readOnly onClick={onToggle}  />
       <label htmlFor={_id} className="text"> {text} </label>
       <button className="remove" onClick={onRemove}>X</button>
-    </li>
-  )
-};
+      </li>
+    )
+  }
+}
+
 
 TodoItem.propTypes={
   onToggle: PropTypes.func,
@@ -25,4 +37,12 @@ TodoItem.propTypes={
   text: PropTypes.string,
 } ;
 
-export default TodoItem;
+const mapDispatchToProps = (dispatch, ownProps)=>{
+  const{id}=ownProps;
+  return{
+    onToggle:()=>dispatch(toggleTodo(id)),
+    onRemove:()=>dispatch(removeTodo(id))
+  }
+} ;
+
+export default connect(null, mapDispatchToProps)(TodoItem)
