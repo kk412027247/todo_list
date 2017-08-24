@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import TodoItem from './todoItem.js';
 import {selectVisibleTodos} from '../selector.js';
 import TransitionGroup from 'react-addons-css-transition-group';
-import './todoItem.css'
+import './todoItem.css';
 
 const TodoList=({todos})=>{
   return(
